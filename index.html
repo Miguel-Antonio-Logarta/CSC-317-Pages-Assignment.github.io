@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" rel="stylesheet">
+    <title>Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="./src/game.js" type="text/JavaScript"></script>
+    <script src="./src/gameState.js" type="text/JavaScript"></script>
+    <script src="./src/entity.js" type="text/JavaScript"></script>
+    <script src="./src/sprite.js" type="text/JavaScript"></script>
+    <script src="./src/player.js" type="text/JavaScript"></script>
+    <script src="./src/rocket.js" type="text/JavaScript"></script>
+    <script src="./src/wordBank.js" type="text/JavaScript"></script>
+    <script src="./src/wordSpawner.js" type="text/JavaScript"></script>
+    <script src="./src/word.js" type="text/JavaScript"></script>
+    <script src="./src/background.js" type="text/JavaScript"></script>
+    <script src="./src/utils.js" type="text/JavaScript"></script>
+    <script src="./src/menuPrompt.js" type="text/JavaScript"></script>
+    <script src="./src/gameOver.js" type="text/JavaScript"></script>
+    <script>
+        const init = function() {
+            const game = new Game("game-window", 60);
+            game.start();
+
+            window.onkeydown = function(event) { game.handleKeyDown(event); };
+            window.onkeyup = function(event) { game.handleKeyUp(event); };
+        }
+    </script>
+</head>
+<body onload="init()">
+    <main>
+        <h1>Word Invasion!</h1>
+        <div class="game-area">
+            <canvas id="game-window">
+            </canvas>
+            <div id="player-area">
+                <span id="score">Score: 0</span>
+                <span id="word-count">Words: 0</span>
+                <div class="enter-word">
+                    <input placeholder="type a word!" id="text-input-box" type="text">
+                    <button id="launch-button">
+                        <span class="front">Launch Missile!</span>
+                    </button>
+                </div>
+                <div class="health-section">
+                    <p>Health</p>
+                    <div id="healthbar-background">
+                        <div id="healthbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="game-description">
+            <h2>Introduction:</h2>
+            <p>An alien invasion has occured in your city! 
+                They are dropping asteroids on you, and the only way to defend 
+                yourself is to type out the words. Defend the Earth by launching 
+                missiles to destroy the incoming asteroids!
+            </p>
+            <h2>How to Play:</h2>
+            <p>
+                To play the game, you have to type in the input box. When your word
+                matches the word asteroid, press "Enter" to launch a missile and
+                destroy it. Each letter counts as 10 points, however, if you fail
+                to destroy an asteroid, it will lower your healthbar until it reaches zero (Game over).
+            </p>
+            <p class="created-by">Created By: Miguel Antonio Logarta</p>
+        </div>
+    </main>
+    <noscript>You need to enable JavaScript to play this game!</noscript>
+</body>
+</html>

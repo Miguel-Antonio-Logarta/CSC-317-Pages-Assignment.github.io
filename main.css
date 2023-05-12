@@ -1,0 +1,203 @@
+@font-face {
+    font-family: 'Upheaval';
+    src: url('./resources/upheavtt.ttf') format('truetype');
+}
+
+/* font-family: 'Open Sans', sans-serif; */
+
+:root {
+    --player-console-color: #161616;
+    --input-box-color: #2F2F2F;
+    --button-color: #CB3C3C;
+    --button-shadow-color: #9f2e2e;
+    --background-color: #9a9a9a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    align-self: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    background: var(--background-color);
+    padding: 32px;
+}
+
+h1 {
+    font-family: "Upheaval";
+    color: white;
+    font-size: 80px;
+    letter-spacing: 0.5em;
+    text-align: center;
+    text-shadow: -3px 3px 2px #000,
+				  3px 3px 2px #000,
+				  3px -3px 0 #000,
+				  -3px -3px 0 #000;
+    margin-bottom: 32px;
+}
+
+.game-area {
+    align-self: center;
+    border: 4px double black;
+}
+
+#game-window {
+    align-self: center;
+    justify-self: center;
+}
+
+#player-area {
+    width: 1024px;
+    background-color: var(--player-console-color);
+    padding: 16px;
+    color: white;
+    font-family: "Upheaval";
+    /* font-family: 'Open Sans', sans-serif; */
+    display: grid;
+    grid-template: 1fr / auto auto 1fr auto;
+    font-size: 24px;
+}
+
+#text-input-box {
+    padding: 8px 16px 8px 16px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: var(--input-box-color);
+    flex-grow: 1;
+}
+
+.square {
+    width: 48px;
+    height: 48px;
+    background-color: var(--button-color);
+}
+
+#score, #word-count {
+    align-self: center;
+    padding: 12px;
+}
+
+.enter-word {
+    display: flex;
+    flex-direction: row;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.enter-word button, .enter-word input {
+    font-family: "Upheaval";
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+}
+
+.enter-word input  {
+    padding: 8px 16px 8px 16px;
+    margin-right: 12px;
+    outline: none;
+}
+
+.health-section {
+    align-self: center;
+    /* display: flex;
+    flex-direction: row; */
+    display: grid;
+    grid-column: auto  1fr;
+}
+
+.health-section p {
+    font-size: 16px;
+}
+
+#healthbar-background {
+    background-color: var(--input-box-color);
+    width: 180px;
+    height: 24px;
+    /* height: 100%; */
+    margin: 8px 0;
+}
+
+#healthbar {
+    background-color: green;
+    width: 100%;
+    height: 100%;
+}
+
+#launch-button {
+    /* padding: 8px; */
+    border-radius: 4px;
+    background: var(--button-shadow-color);
+    border: none;
+    margin-top: 4px;
+    height: 40px;
+    align-self: center;
+}
+
+#launch-button .front {
+    transform: translateY(-4px);
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    background: var(--button-color);
+    display: block;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+}
+
+#launch-button:hover .front {
+    transform: translateY(-6px);
+    transition:
+        transform
+        250ms
+        cubic-bezier(.3, .7, .4, 1.5);
+}
+
+#launch-button:active .front, #launch-button.pressed .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.game-description {
+    max-width: 1032px;
+    padding: 32px 32px 0 32px;
+    align-self: center;
+    background-color: white;
+    border: 4px double black;
+}
+
+.game-description h2 {
+    font-family: "Upheaval";
+    font-size: 32px;
+    letter-spacing: 0.2em;
+}
+
+.game-description p {
+    font-family: "Open Sans", sans-serif;
+    margin: 16px 0;
+}
+
+.created-by {
+    margin-top: 32px !important;
+    margin-bottom: 8px !important;
+    text-align: center;
+    font-size: 0.8rem;
+}
